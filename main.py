@@ -1,13 +1,26 @@
 from typing import Optional
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 from scrape import get_list_of_ads
 import json
+
 
 app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    html_content = """
+    <html>
+        <head>
+            <title>OLX Rent Ads API</title>
+        </head>
+        <body>
+            <h1>Usage:</h1>
+            <h3>/get_ads/city/min_price/max_price</h3>
+        </body>
+    </html>
+    """
+    return HTMLResponse(content=html_content, status_code=200)
 
 
 @app.get("/get_ads/{city}/{min_price}/{max_price}")
