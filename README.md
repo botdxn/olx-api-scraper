@@ -7,7 +7,7 @@
 - Deploy app on Heroku
 
 ##### Future Goals
-- Allow user to specify how much ads he want to download
+- Allow user to specify how much ads he wants to download
 - Implement function to get more ads (default = 40 because it's how many fit in one page)
 - Add more variables that are returned (now: title, price and URL)
 
