@@ -18,5 +18,3 @@ jobs:
       - name: Run flake8
         run: flake8 --count --statistics --show-source
         
-      - name: Show warnings
-        run: flake8 . --count --exit-zero
