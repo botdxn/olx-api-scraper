@@ -19,5 +19,7 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: quentinguidee/pep8-action@9af6974c3aeedfe874f9745ed344c3274c5f0d71
         uses: quentinguidee/pep8-action@v2.0.13-dev
+        with:
+          token: ${{ secrets.SECRET_TOKEN }}
 
 
