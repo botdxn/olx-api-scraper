@@ -5,7 +5,6 @@ from scrape import get_list_of_ads
 
 app = FastAPI()
 
-
 @app.get("/")
 def read_root():
     html_content = """

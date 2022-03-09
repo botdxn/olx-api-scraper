@@ -25,7 +25,7 @@ def get_list_of_ads(city: str, min_price: int, max_price: int) -> list:
     try:
         content_div = soup.find("div", {"class": "content"})
         single_ads = content_div.find_all("div", {"class": "offer-wrapper"})
-    except Exception as err:
+    except Exception:
         sys.stdout.write("Scraping error for divs containing data\n")
 
     for i, single_ad in enumerate(single_ads):
