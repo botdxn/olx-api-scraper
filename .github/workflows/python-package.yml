@@ -1,4 +1,4 @@
-name: Publish to TestPyPI
+name: Build
 
 on: [push]
 jobs:
@@ -7,10 +7,12 @@ jobs:
         steps:
             - uses: actions/checkout@master
 
-            - name: Initialize Python 3.7
+            - name: Initialize Python
               uses: actions/setup-python@v1
               with:
                 python-version: 3.9
 
             - name: Build Python Source and Wheel Distributions
-              uses: OpenAstronomy/build-python-dist@v1
+              uses: OpenAstronomy/build-python-dist@main
+              with:
+                pure_python_wheel: true
