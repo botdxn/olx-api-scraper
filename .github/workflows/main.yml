@@ -25,4 +25,3 @@ jobs:
         with:
           # discord webhook url without /github
           webhook: https://canary.discord.com/api/webhooks/950933843299430430/vQGqDEpZPUcJJVF7k5xiRwFSPe_P4PTl-mKh3hji-HjaIluV2wRgrXdLykxEvTSKfYB7
-          # A general message that is displayed for all commits.
