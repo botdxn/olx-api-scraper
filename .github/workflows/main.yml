@@ -22,7 +22,7 @@ jobs:
         run: pip install mypy
 
       - name: Install mypy stubs
-        run: mypy --install-types
+        run: mypy . --install-types
       
       - name: Run mypy
         run: mypy .
