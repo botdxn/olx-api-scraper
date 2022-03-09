@@ -4,23 +4,28 @@ import sys
 
 
 # function to request and scrape ad data
-def get_list_of_ads(city: str, min_price: int, max_price: int) -> list:
-    URL = (
+
+def make_url(city: str, min_price: int, max_price: int) -> str:
+    url_str = (
         "https://www.olx.pl/nieruchomosci/mieszkania/wynajem/"
-        + str(city)
+        + city
         + "/?search%5Bfilter_float_price%3Afrom%5D="
         + str(min_price)
         + "&search%5Bfilter_float_price%3Ato%5D="
         + str(max_price)
     )
+    return url_str
+
+
+def get_list_of_ads(url) -> list:
 
     list_of_ads = list()
 
     try:
-        request_data = requests.get(URL)
+        request_data = requests.get(url)
         soup = BeautifulSoup(request_data.content, "html.parser")
     except ConnectionError:
-        sys.stdout.write(f"Connection error with {URL}\n")
+        sys.stdout.write(f"Connection error with {url}\n")
 
     try:
         content_div = soup.find("div", {"class": "content"})
@@ -45,4 +50,4 @@ def get_list_of_ads(city: str, min_price: int, max_price: int) -> list:
 
 
 if __name__ == "__main__":
-    print(get_list_of_ads("legnica", 500, 1000))
+    print(get_list_of_ads(make_url("legnica", 500, 1000)))
