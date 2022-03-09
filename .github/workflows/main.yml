@@ -18,3 +18,8 @@ jobs:
       - name: Run flake8
         run: flake8 --count --statistics --show-source
         
+      - name: Install mypy
+        run: pip install mypy
+      
+      -name: Run mypy
+       run: mypy .
