@@ -15,11 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: PEP8 Action
-        # You may pin to the exact commit or the version.
-        # uses: quentinguidee/pep8-action@9af6974c3aeedfe874f9745ed344c3274c5f0d71
-        uses: quentinguidee/pep8-action@v2.0.13-dev
+      - name: Lintly-Flake8
+      # You may pin to the exact commit or the version.
+      # uses: grantmcconnaughey/lintly-flake8-github-action@ffa7dc0468c57e851592b84d509de1d7c6b88acf
+        uses: grantmcconnaughey/lintly-flake8-github-action@v1.0
         with:
+            # The GitHub API token to use for creating PR reviews
           token: ${{ secrets.SECRET_TOKEN }}
-
-
+            # Fail if *any* violations are detected or only *new* ones (valid values are "new" or "any")
