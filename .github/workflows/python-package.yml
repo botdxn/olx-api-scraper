@@ -1,11 +1,16 @@
 name: Publish to TestPyPI
 
-on:
-    push:
-    branches: [ master ]
-    pull_request:
-    branches: [ master ]
-
+on: [push]
 jobs:
-    build-publish:
-    name: Build and publish package to TestPyPI
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+
+            - name: Initialize Python 3.7
+              uses: actions/setup-python@v1
+              with:
+                python-version: 3.9
+
+            - name: Build Python Source and Wheel Distributions
+              uses: OpenAstronomy/build-python-dist@v1
